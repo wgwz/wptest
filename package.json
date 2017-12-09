@@ -1,0 +1,11 @@
+{
+  "name": "wptest",
+  "version": "0.0.0",
+  "description": "simple example build with yarn and webpack",
+  "main": "app.js",
+  "author": "wgwz",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^3.10.0"
+  }
+}
