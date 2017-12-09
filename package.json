@@ -6,6 +6,7 @@
   "author": "wgwz",
   "license": "MIT",
   "dependencies": {
+    "jquery": "^3.2.1",
     "webpack": "^3.10.0"
   }
 }
