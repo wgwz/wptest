@@ -13,11 +13,11 @@ Install `pipenv`, then:
     pipenv install
 
 
-Flask app config precedence:
+Flask config order:
 
-1. system env variables
-2. `instance/.env`
-3. `backend/settings.py`
+1. system env variables -> `prod_settings.py`
+2. `instance/.env` -> `prod_settings.py`
+3. `backend/dev_settings.py`
 
 
 Improvements: 
