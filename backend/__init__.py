@@ -3,7 +3,7 @@ from flask import Flask
 from dotenv import load_dotenv
 
 
-def create_app():
+def create_app(config={}):
     app = Flask(__name__)
 
     # load from .env if present, otherwise fallback on dev values.
@@ -14,6 +14,8 @@ def create_app():
         app.config.from_object('backend.prod_settings')
     else:
         app.config.from_object('backend.dev_settings')
+    # override config values (for testing)
+    app.config.update(config)
 
     app.logger.info(app.config)
 
