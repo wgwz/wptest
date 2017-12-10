@@ -6,6 +6,7 @@
   "author": "wgwz",
   "license": "MIT",
   "dependencies": {
+    "clean-webpack-plugin": "^0.1.17",
     "jquery": "^3.2.1",
     "webpack": "^3.10.0"
   },
