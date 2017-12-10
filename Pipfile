@@ -12,3 +12,4 @@ name = "pypi"
 [packages]
 
 "ef42864" = {file = "https://github.com/pallets/flask/archive/master.tar.gz"}
+python-dotenv = "*"
