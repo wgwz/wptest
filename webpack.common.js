@@ -1,16 +1,16 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const appPath = 'backend/static/dist';
+const distPath = 'backend/static/js';
 
 module.exports = {
   entry: {
     app: './src/app.js'
   },
   plugins: [
-    new CleanWebpackPlugin([appPath])
+    new CleanWebpackPlugin([distPath])
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, appPath)
+    path: path.resolve(__dirname, distPath)
   }
 }
