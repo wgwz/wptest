@@ -14,7 +14,6 @@ def create_app(config_name=None):
 
 
 def _load_config(app, config_name=None):
-    config_obj = config[config_name or 'default']
-    config_obj.load_conf(app)
-    app.config.from_object(config_obj)
+    config[config_name or 'default'].load_conf(app)
+    app.config.from_object(config[config_name or 'default'])
     return None

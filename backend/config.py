@@ -1,9 +1,13 @@
 import os
 from dotenv import load_dotenv
 
+
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    API_KEY = os.environ.get('API_KEY')
+
+    @classmethod
+    def load_conf(cls, app):
+        cls.SECRET_KEY = os.environ.get('SECRET_KEY')
+        cls.API_KEY = os.environ.get('API_KEY')
 
     @staticmethod
     def init_app(app):
@@ -11,13 +15,14 @@ class Config:
 
 
 class DevelopmentConfig(Config):
-    DEBUG = True
-    DB_URI = os.environ.get('DB_URI')
 
-    @staticmethod
-    def load_conf(app):
+    @classmethod
+    def load_conf(cls, app):
         default_path = os.path.join(app.root_path, '.dev-env')
         load_dotenv(default_path)
+        Config.load_conf(app)
+        cls.DEBUG = True
+        cls.DB_URI = os.environ.get('DB_URI')
 
     @classmethod
     def init_app(cls, app):
