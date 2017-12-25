@@ -30,13 +30,14 @@ class DevelopmentConfig(Config):
 
 
 class TestingConfig(Config):
-    TESTING = True
-    DB_URI = os.environ.get('DB_URI')
 
-    @staticmethod
-    def load_conf(app):
+    @classmethod
+    def load_conf(cls, app):
         config_path = os.path.join(app.instance_path, '.test-env')
         load_dotenv(config_path)
+        Config.load_conf(app)
+        cls.TESTING = True
+        cls.DB_URI = os.environ.get('DB_URI')
     
     @classmethod
     def init_app(cls, app):
