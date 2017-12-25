@@ -2,7 +2,19 @@ import os
 from dotenv import load_dotenv
 
 
+class ConfigLoadingError(Exception):
+    pass
+
+
 class Config:
+
+    @staticmethod
+    def load_env(base_dir, filename):
+        config_path = os.path.join(base_dir, filename)
+        if not load_dotenv(config_path):
+            raise ConfigLoadingError(
+                'Error loading config file: %s' % config_path
+            )
 
     @classmethod
     def load_conf(cls, app):
@@ -15,13 +27,12 @@ class Config:
 
 
 class DevelopmentConfig(Config):
+    DEBUG = True
 
     @classmethod
     def load_conf(cls, app):
-        config_path = os.path.join(app.root_path, '.dev-env')
-        load_dotenv(config_path)
+        Config.load_env(app.root_path, '.dev-env')
         Config.load_conf(app)
-        cls.DEBUG = True
         cls.DB_URI = os.environ.get('DB_URI')
 
     @classmethod
@@ -30,13 +41,12 @@ class DevelopmentConfig(Config):
 
 
 class TestingConfig(Config):
+    TESTING = True
 
     @classmethod
     def load_conf(cls, app):
-        config_path = os.path.join(app.instance_path, '.test-env')
-        load_dotenv(config_path)
+        Config.load_env(app.instance_path, '.test-env')
         Config.load_conf(app)
-        cls.TESTING = True
         cls.DB_URI = os.environ.get('DB_URI')
     
     @classmethod
@@ -45,12 +55,12 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
-    DB_URI = os.environ.get('DB_URI')
 
-    @staticmethod
-    def load_conf(app):
-        config_path = os.path.join(app.instance_path, '.env')
-        load_dotenv(config_path)
+    @classmethod
+    def load_conf(cls, app):
+        Config.load_env(app.instance_path, '.prod-env')
+        Config.load_conf(app)
+        cls.DB_URI = os.environ.get('DB_URI')
     
     @classmethod
     def init_app(cls, app):
