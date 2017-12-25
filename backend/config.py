@@ -18,8 +18,8 @@ class DevelopmentConfig(Config):
 
     @classmethod
     def load_conf(cls, app):
-        default_path = os.path.join(app.root_path, '.dev-env')
-        load_dotenv(default_path)
+        config_path = os.path.join(app.root_path, '.dev-env')
+        load_dotenv(config_path)
         Config.load_conf(app)
         cls.DEBUG = True
         cls.DB_URI = os.environ.get('DB_URI')
@@ -35,8 +35,8 @@ class TestingConfig(Config):
 
     @staticmethod
     def load_conf(app):
-        test_path = os.path.join(app.instance_path, '.test-env')
-        load_dotenv(test_path)
+        config_path = os.path.join(app.instance_path, '.test-env')
+        load_dotenv(config_path)
     
     @classmethod
     def init_app(cls, app):
@@ -48,8 +48,8 @@ class ProductionConfig(Config):
 
     @staticmethod
     def load_conf(app):
-        prod_path = os.path.join(app.instance_path, '.env')
-        load_dotenv(prod_path)
+        config_path = os.path.join(app.instance_path, '.env')
+        load_dotenv(config_path)
     
     @classmethod
     def init_app(cls, app):
