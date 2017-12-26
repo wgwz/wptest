@@ -1,4 +1,4 @@
-.PHONY: all install-dev test coverage cov docs release clean-pyc
+.PHONY: all install-dev test coverage cov docs release clean-pyc build-dev build-prod
 
 all: test
 
@@ -19,11 +19,19 @@ cov: coverage
 docs: clean-pyc install-dev
 	$(MAKE) -C docs html
 
-release:
-	python scripts/make-release.py
+release-sdist:
+	python setup.py sdist
+
+release-rpm:
+	python setup.py bdist_rpm
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 
+build-dev:
+	yarn run build --no-minify
+
+build-prod:
+	yarn run build
