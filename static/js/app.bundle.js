@@ -10355,8 +10355,7 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function() {
 
 function bar() {
   __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#button').click(function() {
-    console.log('hello world')
-    console.log('testing')
+    console.log('hiya')
   })
 }
 

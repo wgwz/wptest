@@ -1,0 +1,8 @@
+include Makefile webpack.*.js package.json yarn.lock
+
+graft tests
+
+global-exclude *.py[co]
+
+recursive-include static
+
