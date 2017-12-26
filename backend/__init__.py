@@ -2,7 +2,9 @@ import os
 from flask import Flask
 from werkzeug.utils import find_modules, import_string
 from .config import config
- 
+
+__version__ = '0.0dev'
+
 
 def create_app(config_name=None):
     app = Flask('wptest')
