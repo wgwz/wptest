@@ -1,3 +1,9 @@
-import bar from './bar.js'
+import $ from 'jquery';
+import bar from './bar.js';
 
-bar();
+
+$(document).ready(function() {
+
+   bar();
+
+})

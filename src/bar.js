@@ -1,8 +1,7 @@
+import $ from 'jquery';
+
 export default function bar() {
-  console.log('baz..')
-  console.log('baz..')
-  console.log('bar..')
-  console.log('baz..')
-  console.log('bar..')
-  console.log('baz..')
+   $('#button').click(function() {
+       console.log('hello')
+   })
 }
