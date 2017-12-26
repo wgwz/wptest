@@ -1,7 +1,7 @@
 """"""
 import re
 import ast
-from setuptools import setup
+from setuptools import setup, find_packages
 
 _version_re = re.compile(r'__version__\s+=\s+(.*)')
 
@@ -17,7 +17,7 @@ setup(
     author='wgwz',
     author_email='klawlor419@gmail.com',
     description='flask/js app',
-    packages=['backend'],
+    packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     platforms='any',

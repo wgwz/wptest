@@ -4,5 +4,5 @@ graft tests
 
 global-exclude *.py[co]
 
-recursive-include static
+recursive-include static *.js
 
