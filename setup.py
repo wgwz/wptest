@@ -17,11 +17,11 @@ setup(
     author='wgwz',
     author_email='klawlor419@gmail.com',
     description='flask/js app',
-    packages=find_packages(),
+    packages=find_packages(exclude=['docs', 'tests']),
     include_package_data=True,
     zip_safe=False,
     platforms='any',
-    install_requires=[],
+    # install_requires=[],
     # entry_points='''
     #     [console_scripts]
     #     flask=flask.cli:main
