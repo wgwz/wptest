@@ -22,11 +22,22 @@ docs: clean-pyc install-dev
 release:
 	python scripts/make-release.py
 
+clean: clean-pyc clean-egg clean-build clean-venv
+
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 
-clean-build: clean-pyc
+clean-egg: 
+	find . -name '*.egg-info' -exec rm -rf {} +
+
+clean-build: 
 	rm -rf dist/
 	rm -rf build/
+
+clean-venv:
+	find . -name 'venv' -exec rm -rf {} +
+
+clean-edit:
+	find . -name '*.sw*' -exec rm -f {} +
