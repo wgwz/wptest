@@ -1,6 +1,5 @@
 include Makefile webpack.*.js package.json yarn.lock requirements.txt
 
-include static/js/*
 recursive-include backend *
 graft tests
 
