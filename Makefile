@@ -27,3 +27,6 @@ clean-pyc:
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 
+clean-build: clean-pyc
+	rm -rf dist/
+	rm -rf build/
