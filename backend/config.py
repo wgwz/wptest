@@ -18,6 +18,7 @@ class Config:
 
     @classmethod
     def load_conf(cls, app):
+        cls.APP_MODE = os.environ.get('APP_MODE')
         cls.SECRET_KEY = os.environ.get('SECRET_KEY')
         cls.API_KEY = os.environ.get('API_KEY')
 
