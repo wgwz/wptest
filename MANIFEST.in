@@ -1,0 +1,6 @@
+include Makefile requirements.txt wsgi.py
+
+recursive-include backend *
+graft tests
+
+global-exclude *.py[co]

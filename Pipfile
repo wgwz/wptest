@@ -8,7 +8,8 @@ name = "pypi"
 [packages]
 
 python-dotenv = "==0.7.1"
-
+"ef42864" = {file = "https://github.com/pallets/flask/archive/master.tar.gz"}
+wheel = "*"
 
 [dev-packages]
 
