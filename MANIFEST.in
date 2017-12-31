@@ -1,4 +1,4 @@
-include Makefile webpack.*.js package.json yarn.lock requirements.txt
+include Makefile requirements.txt wsgi.py
 
 recursive-include backend *
 graft tests

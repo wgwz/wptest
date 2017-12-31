@@ -7,7 +7,8 @@ __version__ = '0.0dev'
 
 
 def create_app(config_name=None):
-    app = Flask('wptest', static_url_path='/static')
+    #app = Flask('wptest', static_url_path='/static')
+    app = Flask('wptest')
 
     _load_config(app, config_name=config_name)
     app.logger.info(app.config)
