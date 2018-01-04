@@ -1,4 +1,4 @@
-include Makefile requirements.txt wsgi.py
+include Makefile requirements.txt
 
 recursive-include backend *
 graft tests

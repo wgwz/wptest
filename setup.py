@@ -20,7 +20,7 @@ setup(
     author='wgwz',
     author_email='klawlor419@gmail.com',
     description='flask/js app',
-    packages=find_packages(exclude=['docs', 'tests']),
+    packages=find_packages(exclude=['docs']),
     include_package_data=True,
     zip_safe=False,
     platforms='any',
