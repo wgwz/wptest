@@ -26,10 +26,10 @@ release-rpm:
 	python setup.py bdist_rpm
 
 build-dev:
-	yarn run build --no-minify
+	yarn run build --config webpack.dev.js
 
 build-prod:
-	yarn run build
+	yarn run build --config webpack.prod.js
 
 clean: clean-pyc clean-egg clean-build clean-venv
 

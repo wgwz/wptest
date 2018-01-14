@@ -22,7 +22,6 @@ setup(
     description='flask/js app',
     packages=find_packages(exclude=['docs']),
     include_package_data=True,
-    zip_safe=False,
     platforms='any',
     install_requires=REQUIRED,
     # entry_points='''

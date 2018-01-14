@@ -1,5 +1,3 @@
-include Makefile requirements.txt
-
-recursive-include backend *
+include requirements.txt
 
 global-exclude *.py[co]
