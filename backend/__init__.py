@@ -2,13 +2,13 @@ import os
 from flask import Flask
 from werkzeug.utils import find_modules, import_string
 from .config import config
+from distutils.sysconfig import get_python_lib
 
 __version__ = '0.0dev'
 
 
 def create_app(config_name=None):
-    #app = Flask('wptest', static_url_path='/static')
-    app = Flask('wptest')
+    app = Flask('wptest', static_folder='static')
 
     _load_config(app, config_name=config_name)
     app.logger.info(app.config)

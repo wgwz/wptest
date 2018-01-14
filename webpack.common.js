@@ -1,6 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const distPath = 'backend/static/js';
+const distPath = 'static/js';
 
 module.exports = {
   entry: {

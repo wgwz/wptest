@@ -1,4 +1,5 @@
 import os
+from distutils.sysconfig import get_python_lib
 from dotenv import load_dotenv
 
 
@@ -18,9 +19,11 @@ class Config:
 
     @classmethod
     def load_conf(cls, app):
+        cls.ASSETS_FOLDER = '/static'
         cls.APP_MODE = os.environ.get('APP_MODE')
         cls.SECRET_KEY = os.environ.get('SECRET_KEY')
         cls.API_KEY = os.environ.get('API_KEY')
+        cls.DB_URI = os.environ.get('DB_URI')
 
     @staticmethod
     def init_app(app):
@@ -34,7 +37,6 @@ class DevelopmentConfig(Config):
     def load_conf(cls, app):
         Config.load_env(app.root_path, '.dev-env')
         Config.load_conf(app)
-        cls.DB_URI = os.environ.get('DB_URI')
 
     @classmethod
     def init_app(cls, app):
@@ -48,7 +50,6 @@ class TestingConfig(Config):
     def load_conf(cls, app):
         Config.load_env(app.instance_path, '.test-env')
         Config.load_conf(app)
-        cls.DB_URI = os.environ.get('DB_URI')
     
     @classmethod
     def init_app(cls, app):
@@ -61,7 +62,6 @@ class ProductionConfig(Config):
     def load_conf(cls, app):
         Config.load_env(app.instance_path, '.prod-env')
         Config.load_conf(app)
-        cls.DB_URI = os.environ.get('DB_URI')
     
     @classmethod
     def init_app(cls, app):

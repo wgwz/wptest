@@ -3,7 +3,7 @@
 all: test
 
 install-dev:
-	pip install -q -e .[dev]
+	pip install -q -e .
 
 test: clean-pyc install-dev
 	pytest
