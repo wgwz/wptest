@@ -1,3 +1,5 @@
 include requirements.txt
 
+recursive-include backend *
+
 global-exclude *.py[co]
