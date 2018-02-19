@@ -1,0 +1,26 @@
+FROM centos:centos6.9
+
+# Fix for Click in Python3
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+
+ENV LD_LIBRARY_PATH /usr/lib/oracle/12.1/client64/lib
+
+RUN yum install -y https://rhel6.iuscommunity.org/ius-release.rpm \
+&& yum update -y && yum install -y gcc openssl-devel wget \
+python35u \
+python35u-pip \
+python35u-setuptools
+# RUN yum install http://192.168.99.100:8081/repository/myrpms/instcli.rpm
+
+RUN mkdir /app
+
+COPY requirements/dev.txt /app/requirements/
+RUN pip3.5 install --no-cache-dir -r /app/requirements/dev.txt
+
+COPY . /app
+COPY docker-assets/cert.pem cert.pem
+COPY docker-assets/key.pem key.pem
+
+WORKDIR /app
+CMD gunicorn --reload --certfile /cert.pem --keyfile /key.pem --log-level debug -b 0.0.0.0:8000 backend.wsgi:application

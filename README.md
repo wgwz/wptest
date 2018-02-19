@@ -1,19 +1,21 @@
-Install yarn, then:
+# Basics:
 
-    yarn install
-    yarn run build
+See the `Makefile`.
 
-Outputs `static/dist/js/app.js`.
-See `package.json` and [parceljs][1] for more.
+- Install [`yarn`][1]
 
-To preserve `console.log`'s:
+# Building JS assets:
+
+    make build-dev
+    make build-prod  # minify
+
+- Outputs `static/dist/js/app.bundle.js`.
+- See `webpack.*.js` for details.
+
+# 
+
+- To preserve `console.log`'s:
 
     yarn run build --no-minify
 
-Install `pipenv`, then:
-
-    pipenv install
-
-Or do the usual with `venv`.
-
-[1]: https://parceljs.org/
+[1]: https://yarnpkg.com/lang/en/docs/install/

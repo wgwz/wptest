@@ -1,0 +1,6 @@
+Flask==0.12.2
+python-dotenv==0.7.1
+Flask-Dance==0.13.0
+sqlalchemy==1.2.3
+Flask-SQLAlchemy==2.3.2
+gunicorn==19.7.1

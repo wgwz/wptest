@@ -1,0 +1,2 @@
+- static assets at blueprint level
+- adjust webpack to build per blueprint
